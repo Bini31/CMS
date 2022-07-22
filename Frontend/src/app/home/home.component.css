@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Tapestry&display=swap');
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.container1{
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+.headline{
+    position: absolute;
+    top: 250px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 64px;
+    color: rgb(235, 28, 28);
+    font-weight: 800;
+    z-index:2 ;
+   align-items: center;
+   left:17vw;
+}
+.carousel-item{
+    margin-top: 0px;
+ width: 100vw;
+    height: 100vh;
+    position: bottom left;
+}
+.box{
+    display: flex;
+	width: 500px;
+	height: 50px;
+    position: absolute;
+	background-color: white;
+	border-radius: 30px;
+	top: 400px;
+    left: 30vw;
+	padding: 20px;
+    align-items: center;
+    z-index: 2;
+}
+.box > i {
+	font-size: 20px;
+	color: #777;
+}
+.box > input{
+	flex: 1;
+	height: 30px;
+    width: 500px;
+	border: none;
+	outline: none;
+	font-size: 18px;
+	padding-left: 10px;
+}
+br{
+    width: 150vw;
+}
+.strip1{
+    height: 250px;
+    background-color: #a74086;
+}
+.strip1 h1{
+    position: absolute;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    color: rgb(234, 83, 83);
+    padding-right: 8vw;
+    left: 30vw;
+}
+.strip1-narrow{
+    height: 80px;
+    background-color: #a74086;
+}
+.strip2{
+    height: 250px;
+    background-color: #a74086;
+}
+.strip2 h1{
+    position: absolute;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    color: white;
+    padding-right: 8vw;
+    left: 30vw;
+}
+.strip2-narrow{
+    height: 80px;
+    background-color: #a74086;
+}
+.card-img-top{
+    width: 10rem;
+    height: 10rem;
+}
+.card-img-top{
+    border-radius: 0px;
+}
+.card{
+    border-radius: 0px;
+    border: 1px solid white;
+    align-items: center;
+    padding: 5px;
+    margin-right: 10px;
+}
+.row1{
+    position: relative;
+    top: -50px;
+    margin-left: 130px;
+}
+.btn-card:hover{
+    border: 1px solid #a74086 ;
+    background-color: #a74086;
+    color: rgb(240, 41, 41);
+}
+@media screen and (max-width: 500px) {
+    h1{
+        font-size:12px;
+    }
+}
+.carousel1{
+    background: #AB773D;
+  }
+  .acrylic
+  {
+      text-align: center;
+      
+  }
+  #aboutus{
+ 
+    white-space:pre-line;
+    text-align: center;
+    padding-top: 70px;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+   
+
+
+
+}
