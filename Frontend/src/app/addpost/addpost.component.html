@@ -1,0 +1,51 @@
+<br>
+<br>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="'col-md-9">
+    <div calss="panel panel default">
+        <div class="panel-heading main-color-bg">
+            <h3 class="panel-title">Add Post</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-12">
+                    <input class="form-control" id="search" type="text" placeholder="filter pages...."><br>
+                    <form  class="form_group field" [formGroup]="addPost" (ngSubmit)="onRegister()" >
+                        <div class="inputs">
+                            <label><b>Title</b></label><br>
+                            <input id="title" name="title" formControlName="title" type="text" required><br><br>
+                            <span class="text-danger"
+                            *ngIf="(addPost.controls['title'].touched||submitted) && addPost.controls['title'].errors?.['required']">
+                            Title is required,
+                        </span>
+                  
+                            <label><b>Slug</b></label> <br><input id="slug" name='slug' formControlName="slug" type="slug" required><br><br>
+                            <span class="text-danger"
+                            *ngIf="(addPost.controls['slug'].touched||submitted) && addPost.controls['slug'].errors?.['required']">
+                            Slug is required
+                        </span>
+                     
+                      
+            <label><b>Body</b></label><br>
+             <textarea id="body" name="'body" formControlName="body" type="text" required></textarea>
+            <span class="text-danger"
+            *ngIf="(addPost.controls['body'].touched||submitted) && addPost.controls['body'].errors?.['required']">
+            Body is required
+        </span><br>
+     
+            <label for="publish-date"><b>Publish Date</b></label><br>
+            
+                <input type="date" id="date" name='date' formControlName="date" required />
+        
+  
+       <br><br>
+        
+                           
+                        <div><button class="w3-button w3-black w3-round-large" id="save" type="submit">Save</button><span></span><button class="w3-button w3-black w3-round-large" type="submit">Cancel</button><br><br></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+   

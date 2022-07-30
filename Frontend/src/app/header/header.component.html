@@ -1,38 +1,68 @@
 <div>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: rgba(0, 0, 0); width: 100%;" >
-        <div class="container-fluid">
-         
-          <a class="navbar-brand" href="#"> <img src="/assets/logo2.png" alt="" style="width: 70px;height: 80px;"> </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" routerLink="" style="color: white;padding-right: 4vw;">Home</a>
-              </li>
-             
-              <li class="nav-item">
-                <a class="nav-link" href="#aboutus"  style="color: white;padding-right: 4vw;">AboutUs</a>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link" routerLink="contactus"  style="color: white;padding-right: 4vw;">ContactUs</a>
-              </li>
-            
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: rgba(0, 0, 0); width: 100%;" >
+      <div class="container-fluid">
+       
+        <a class="navbar-brand" href="#"> <img src="/assets/logo2.png" alt="" style="width: 70px;height: 80px;"> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" routerLink="" style="color: white;padding-right: 4vw;">Home</a>
+            </li>
+            <li ngbDropdown class="nav-item " *ngIf="auth.loggedIn()" style="color: white;padding-right: 4vw;">
+              <a   class="nav-link" (click)="false" ngbDropdownToggle>Create Content</a>
+              <div ngbDropdownMenu class="Buyer ">
+                <button ngbDropdownItem  routerLink="/rootuser/addpost">Add Post</button>
               
-             
-              <li class="nav-item">
-                <a class="nav-link"  routerLink="login" style="color: white;padding-right: 4vw;">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="register"  style="color: white;padding-right: 4vw;">Register</a>
-              </li>
-             
-            </ul>
-  
-            </div>
+                
+                <div class="dropdown-divider"></div>
+                <button  ngbDropdownItem>Add Page</button>
+                <div class="dropdown-divider"></div>
+                <button ngbDropdownItem>Add Category</button>
+                <div class="dropdown-divider"></div>
+                <button ngbDropdownItem>Add User Role</button>
+              </div>
+            </li>
+            
+            <!-- <li class="nav-item">
+              <a class="nav-link" aria-current="page" *ngIf="auth.loggedIn()" routerLink="" style="color: white;padding-right: 4vw;">Create Content</a>
+            </li>
+            <label for="userole" style="color: white;padding-right: 4vw;"><b>Create Content<h3></h3> <span></span>
+              <p></p> 
+          </b></label><br><br>
+
+         
+      <select name="userrole" id="userrole" formControlName="userrole" value="Create Content" required><br>
+          <option value="Buyer">Posts</option>
+          <option value="Seller">Pages</option>
+          <option value="Seller">Category</option>
+      </select> -->
+           
+            <li class="nav-item">
+              <a class="nav-link" href="#aboutus" *ngIf="!auth.loggedIn()"  style="color: white;padding-right: 4vw;">AboutUs</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" routerLink="contactus" *ngIf="!auth.loggedIn()"  style="color: white;padding-right: 4vw;">ContactUs</a>
+            </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/" *ngIf="auth.loggedIn()" (click)="logOut()" style="color: white;padding-right: 4vw;">Logout</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="login" *ngIf="!auth.loggedIn()" style="color: white;padding-right: 4vw;">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="register" *ngIf="!auth.loggedIn()"  style="color: white;padding-right: 4vw;">Register</a>
+            </li>
+           
+          </ul>
+
           </div>
-      </nav>
-  </div>
-  
-  
+        </div>
+    </nav>
+</div>
+
+

@@ -1,0 +1,23 @@
+.panel{
+    position: absolute;
+    height:100%;
+    width:100%
+}
+#search{
+    width:900px;
+}
+#title{
+    width:900px;
+    height:40px
+}
+#slug{
+    width:900px;
+    height:40px
+}   
+#body{
+    width:900px;
+    height:200px
+}
+#save{
+    margin-right: 10px;
+}
