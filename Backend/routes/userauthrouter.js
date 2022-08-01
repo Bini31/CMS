@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const registerData = require('../model/registermodel')
+const addPostData=require('../model/addPostmodel')
 const bcrypt = require('bcrypt');
 const jwt=require('jsonwebtoken');
 const checkAuth=require('../middleware/check-auth')
@@ -36,6 +37,25 @@ router.post('/register',(req, res) => {
     })
   
   
+  });
+  router.post('/addpost',(req, res) => {
+    const posts = new addPostData({
+      title: req.body.title,
+      slug: req.body.slug,
+    body:req.body.body,
+      date:req.body.date,
+      
+
+    })
+    posts.save()
+    .then((result) => {
+  
+      res.json({ success: true, message: "Posts Saved" })
+    }).catch(err => {
+      
+      return res.json({ success: false, message: "Not Saved" })
+
+    })
   });
   router.post('/login',(req, res) => {
     //res.json("Hai");

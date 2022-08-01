@@ -20,6 +20,12 @@ export class AuthservicesService {
    
     return this.http.post<any>("http://localhost:3000/users/login",data)
   }
+  addPostData(data:any) :Observable<any>{
+
+    //console.log("data from Service file" , data)
+
+    return this.http.post<any>("http://localhost:3000/users/addpost", data)
+  }
   loggedIn()
   {
     return !!localStorage.getItem('token')
