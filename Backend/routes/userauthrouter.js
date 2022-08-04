@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const registerData = require('../model/registermodel')
 const addPostData=require('../model/addPostmodel')
+const categoryData=require('../model/categorymodel')
 const bcrypt = require('bcrypt');
 const jwt=require('jsonwebtoken');
 const checkAuth=require('../middleware/check-auth')
@@ -38,13 +39,31 @@ router.post('/register',(req, res) => {
   
   
   });
+  router.get('/profile',(req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+    addPostData.find()
+        .then((profiles) => {
+           // console.log(users)
+            res.send(profiles)
+        });
+  });
+  router.delete('/remove/:id',(req,res)=>{
+   
+    id = req.params.id;
+    addPostData.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        console.log('success')
+        res.send();
+    })
+  })
   router.post('/addpost',(req, res) => {
     const posts = new addPostData({
       title: req.body.title,
       slug: req.body.slug,
     body:req.body.body,
       date:req.body.date,
-      
+      category:req.body.category
 
     })
     posts.save()
@@ -57,6 +76,33 @@ router.post('/register',(req, res) => {
 
     })
   });
+  router.post('/category',(req, res) => {
+    const category= new categoryData({
+      categoryname: req.body.categoryname,
+     
+      
+
+    })
+    category.save()
+    .then((result) => {
+  
+      res.json({ success: true, message: "Category Saved" })
+    }).catch(err => {
+      
+      return res.json({ success: false, message: "Not Saved" })
+
+    })
+  });
+  
+  router.get('/category', (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+    categoryData.find()
+        .then((category) => {
+           
+            res.send(category)
+        });
+      });
   router.post('/login',(req, res) => {
     //res.json("Hai");
     registerData.find({ email: req.body.email1 })
@@ -86,4 +132,36 @@ router.post('/register',(req, res) => {
         res.json({ success: false, message: "Auth Failed" })
       });
   })
+  router.get('/:id', (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+     id = req.params.id;
+     console.log(id)
+    addPostData.findOne({"_id":id})
+    .then((profileItem)=>{
+        res.send(profileItem);
+    });
+  })
+  router.put('/update',(req,res)=>{
+    console.log(req.body)
+    id=req.body._id,
+    //profileId= req.body.profileId,
+    title = req.body.title,
+    slug= req.body.slug,
+    body = req.body.body,
+   date= req.body.date,
+
+   addPostData.findByIdAndUpdate({"_id":id},
+                                {$set:{
+                                  //"profileId":productId,
+                                  "title":title,
+                                  "slug":slug,
+                                  "body":body,
+                                 "date":date
+                              }})
+   .then(function(){
+       res.send();
+   })
+  })
+  
   module.exports = router;

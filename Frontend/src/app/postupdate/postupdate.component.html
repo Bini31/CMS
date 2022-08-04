@@ -1,0 +1,54 @@
+
+<br><br><br><br><br>
+<div class='card'>
+    <form  (ngSubmit)="editProduct()">
+<div class='card-header'>
+ <b>EDIT POSTS</b>
+</div>
+<div class='card-body'>            
+  <div class='table-responsive'>
+    <table class='table'>       
+    
+      <tbody>  
+        <!-- <tr>
+            <td> <label>Profile Id</label></td>
+            <td><input type="text" name="profileID"  [(ngModel)]="profileItem.profileId"/></td>                  
+          </tr> -->
+          <tr>
+              <td> <label>Title</label></td>
+              <td><input type="text" name="title" [(ngModel)]="profileItem.title" /></td>                  
+            </tr>   
+           <tr>
+                <td><label>Slug</label></td>
+                <td><input type="text" name="slug" [(ngModel)]="profileItem.slug"/></td>                  
+              </tr>  
+              <tr>
+                <td><label>Body</label></td>
+                <td><input type="text" name="body" [(ngModel)]="profileItem.body"/></td>                  
+              </tr>  
+              <tr>
+                <td><label>Published Date</label></td>
+                <td><input type="date" name="date" [(ngModel)]="profileItem.date" /></td>                  
+              </tr>  
+               
+              <!-- <tr>
+                <td> <label>Product starRating</label></td>
+                <td><input type="text" name="p_rating" /></td>                  
+              </tr>   -->
+              <!-- <tr>
+                <td><label>Product imageUrl</label></td>
+                <td><input type="text" name="p_image" /></td>                  
+              </tr>   -->
+              <tr>
+                <td></td>
+                <td><input type="submit"  value="Submit" /></td>                  
+              </tr>             
+      </tbody>
+    </table>
+  </div>
+</div>
+</form>
+</div>
+
+
+

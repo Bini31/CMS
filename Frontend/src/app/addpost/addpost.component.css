@@ -1,14 +1,11 @@
 .panel{
     position: absolute;
     height:100%;
-    width:100%
-}
-#search{
-    width:900px;
 }
 #title{
-    width:900px;
-    height:40px
+    width:400px;
+    height:40px;
+    margin-right:115px ;
 }
 #slug{
     width:900px;
@@ -20,4 +17,21 @@
 }
 #save{
     margin-right: 10px;
+    width:85px;
+}
+#search{
+    width:900px; 
+}
+#cancel{
+    margin-bottom: 10px;
+    width:85px;
+}
+#publisheddate{
+    margin-right:70px;
+}
+#date{
+    margin-right:50px;
+}
+#lbtitle{
+    margin-right:50%;
 }

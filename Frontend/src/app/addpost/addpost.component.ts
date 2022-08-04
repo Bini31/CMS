@@ -3,20 +3,30 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { CustomvalidatorService } from '../services/customvalidator.service';
 import { AuthservicesService } from '../services/authservices.service';
 import { Router } from '@angular/router';
-
+import { CategoryModel } from '../services/CategoryModel';
 @Component({
   selector: 'app-addpost',
   templateUrl: './addpost.component.html',
   styleUrls: ['./addpost.component.css']
 })
 export class AddpostComponent implements OnInit {
+  category:CategoryModel[]=[]
+  className=""
 
+    
+  
+  
+  
   submitted = false;
   message='';
   
   isProcessing = false;
-className=""
-
+ 
+// profiles=[{
+//   profileId:'',
+//     categoryname:'',
+    
+//    }]
   constructor(private fb:FormBuilder,private customValidator: CustomvalidatorService,private _router:Router,private addpostservice: AuthservicesService) { }
   addPost=new FormGroup({
   
@@ -27,12 +37,18 @@ className=""
     
     body: new FormControl('', Validators.compose([Validators.required, this.customValidator.patternValidator()])),
     date: new FormControl('', Validators.compose([Validators.required, this.customValidator.patternValidator()])),
+    category: new FormControl('', Validators.required),
   })
   ngOnInit(): void {
+    this.addpostservice.getCategories().subscribe((data)=>{
+      this.category=JSON.parse(JSON.stringify(data));
+      console.log(this.category)
+  })
+  
   }
 
   onAddPost() {
-     
+   
 
   
     let data = this.addPost.value;
@@ -64,8 +80,9 @@ className=""
   
 
 }
-
+get(){
   
+} 
   onremove(){
     window.location.reload();
   }

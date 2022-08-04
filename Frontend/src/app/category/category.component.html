@@ -1,0 +1,32 @@
+<br>
+<br>
+<br>
+<h3 class="category"><b>Categories</b></h3><br><br>
+<h6><b>Add new Category</b></h6>
+            <form  class="form_group field" [formGroup]="categoryForm" (ngSubmit)="onCategory()">
+<!--             <p>Don't have an account? <a href="/register">Create Your Account</a> it takes less than a minute</p>
+            <form  class="form_group field" [formGroup]="loginForm" (ngSubmit)="onSubmit()"> -->
+                <div class="inputs">
+                    <label class="lbcat">Category Name:</label>
+                    <input id="categoryname" name="categoryname" formControlName="categoryname"   type="text"  placeholder="Enter Category Name">
+                    <span class="text-danger"
+                    *ngIf="(categoryForm.controls['categoryname'].touched||submitted) && categoryForm.controls['categoryname'].errors?.['required']">
+                    Category name  is required,
+                </span>
+                <span class="text-danger"
+                *ngIf="categoryForm.controls['categoryname'].touched && categoryForm.controls['categoryname'].errors?.['pattern'] ">
+            Invalid Category name.
+            </span><br>
+            
+                    
+                
+                </div>
+           
+            <br><br>
+
+           
+
+            <br>
+            <button type="submit">Add New Category</button>
+            </form>
+        
