@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthservicesService } from '../services/authservices.service';
 import { Router } from '@angular/router';
+import { CategoryModel } from '../services/CategoryModel';
 @Component({
   selector: 'app-postupdate',
   templateUrl: './postupdate.component.html',
   styleUrls: ['./postupdate.component.css']
 })
 export class PostupdateComponent implements OnInit {
+  category:CategoryModel[]=[]
+   
   profileItem= {
     profileId:'',
     title :'',
     slug:'',
     body:'',
     date:'',
+    category:''
     }
   constructor(private adminprofileservice: AuthservicesService,private router:Router ) { }
 
@@ -23,7 +27,11 @@ export class PostupdateComponent implements OnInit {
       this.profileItem=JSON.parse(JSON.stringify(data));
     
       console.log(this.profileItem)
+     
   })
+  this.adminprofileservice.getCategories().subscribe((data)=>{
+    this.category=JSON.parse(JSON.stringify(data));
+    console.log(this.category)})
   }
   editProduct()
   {    
@@ -32,4 +40,3 @@ export class PostupdateComponent implements OnInit {
     this.router.navigate(['/rootuser/viewpost']);
   }
 }
-

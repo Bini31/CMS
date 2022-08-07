@@ -30,7 +30,19 @@
                 <td><label>Published Date</label></td>
                 <td><input type="date" name="date" [(ngModel)]="profileItem.date" /></td>                  
               </tr>  
-               
+              <tr>
+                <td><label>Category</label></td>
+                <!-- <select [(ngModel)]="profileItem.category">
+                  <option ></option>
+                  
+              </select>  -->
+               <!-- <select><option name="category" [(ngModel)]="profileItem.category" placeholder="" ></option></select>  -->
+               <td> <select type="text"  name="category" [(ngModel)]="profileItem.category"><br>
+                  <option *ngFor="let i of category" >{{i.category}}
+                  
+              </select> </td>
+              </tr> 
+            
               <!-- <tr>
                 <td> <label>Product starRating</label></td>
                 <td><input type="text" name="p_rating" /></td>                  
@@ -49,6 +61,5 @@
 </div>
 </form>
 </div>
-
 
 
