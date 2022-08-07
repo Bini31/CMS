@@ -46,8 +46,14 @@ export class AuthservicesService {
       return false
     }
   }
+ 
   getProfiles() {
     return this.http.get('http://localhost:3000/users/profile')
+  }getUsers() {
+    return this.http.get('http://localhost:3000/users/users')
+  }
+  getUser(id:any) {
+    return this.http.get('http://localhost:3000/users/users/'+id)
   }
   getCategories() {
     return this.http.get('http://localhost:3000/users/category')
@@ -69,6 +75,47 @@ export class AuthservicesService {
 
   }
  
+  deleteUser(id:any)
+  {
   
+    return this.http.delete("http://localhost:3000/users/removeuser/"+id)
+
+  }
+  editUser(profile:any)
+  {
+    console.log('client update')
+    return this.http.put("http://localhost:3000/users/updateuser",profile)
+    .subscribe(data =>{console.log(data)})
+
+  }
+  adminCheck(){
+    var user=localStorage.getItem('userrole')
+    if(user=="Admin"){
+      return true;
+    }
+    else {
+      return false
+    }
+  }
+  superAdminCheck(){
+    var user=localStorage.getItem('userrole')
+    if(user=="SuperAdmin"){
+      return true;
+    }
+    else {
+      return false
+    }
+  }
+  auCheck(){
+    var user=localStorage.getItem('userrole')
+    if(user=="User"){
+      return true;
+    }
+    else {
+      return false
+    }
+
+    
+  }
  
 }

@@ -7,13 +7,14 @@ mongoose.connect('mongodb+srv://bini:user1@cms.vp6iq.mongodb.net/CMSTCS?retryWri
 
 
 var AddPostSchema = new Schema({
-   // _id:{type:String,required:true},
+    //id:{type:String,required:true},
   // profileId : {type:String,required:true},
     title: {type:String,required:true},
     slug:{type:String,unique:true},
     body:{type:String,required:true},
     date:{type:Date,required:true},
-    
+    category:{type:String},
+    email:{type:String}
  
   
 });

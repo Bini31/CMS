@@ -4,8 +4,8 @@ export class PostModel{
     public title:String,
     public slug:String,  
     public body : String,
-    public date: Date
-    
+    public date: Date,
+    public email:String
     
     ){}
 }

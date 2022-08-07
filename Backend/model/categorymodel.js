@@ -9,7 +9,7 @@ mongoose.connect('mongodb+srv://bini:user1@cms.vp6iq.mongodb.net/CMSTCS?retryWri
 var CategorySchema = new Schema({
     //id:{type:String,required:true},
   // profileId : {type:String,required:true},
-    categoryname: {type:String,required:true}
+    category: {type:String,required:true}
     
     
  

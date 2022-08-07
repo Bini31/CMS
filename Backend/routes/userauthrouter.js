@@ -45,6 +45,16 @@ router.post('/register',(req, res) => {
     addPostData.find()
         .then((profiles) => {
            // console.log(users)
+          let email=profiles.email
+            res.send(profiles)
+        });
+  });
+  router.get('/users',(req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+    registerData.find()
+        .then((profiles) => {
+           // console.log(users)
             res.send(profiles)
         });
   });
@@ -57,14 +67,23 @@ router.post('/register',(req, res) => {
         res.send();
     })
   })
+  router.delete('/removeuser/:id',(req,res)=>{
+   
+    id = req.params.id;
+    registerData.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        console.log('success')
+        res.send();
+    })
+  })
   router.post('/addpost',(req, res) => {
     const posts = new addPostData({
       title: req.body.title,
       slug: req.body.slug,
     body:req.body.body,
       date:req.body.date,
-      category:req.body.category
-
+      category:req.body.category,
+email:req.body.email
     })
     posts.save()
     .then((result) => {
@@ -78,7 +97,7 @@ router.post('/register',(req, res) => {
   });
   router.post('/category',(req, res) => {
     const category= new categoryData({
-      categoryname: req.body.categoryname,
+      category: req.body.category,
      
       
 
@@ -142,6 +161,16 @@ router.post('/register',(req, res) => {
         res.send(profileItem);
     });
   })
+  router.get('/users/:id', (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+     id = req.params.id;
+     console.log(id)
+    registerData.findOne({"_id":id})
+    .then((profileItem)=>{
+        res.send(profileItem);
+    });
+  })
   router.put('/update',(req,res)=>{
     console.log(req.body)
     id=req.body._id,
@@ -150,6 +179,8 @@ router.post('/register',(req, res) => {
     slug= req.body.slug,
     body = req.body.body,
    date= req.body.date,
+   category=req.body.category
+   //category=req.body.categoryname
 
    addPostData.findByIdAndUpdate({"_id":id},
                                 {$set:{
@@ -157,7 +188,32 @@ router.post('/register',(req, res) => {
                                   "title":title,
                                   "slug":slug,
                                   "body":body,
-                                 "date":date
+                                 "date":date,
+                                "category":category
+                                //"category":categoryname
+                              }})
+   .then(function(){
+       res.send();
+   })
+  })
+  router.put('/updateuser',(req,res)=>{
+    console.log(req.body)
+    id=req.body._id,
+    //profileId= req.body.profileId,
+    name= req.body.name,
+    email= req.body.email,
+  userrole = req.body.userrole,
+  
+   //category=req.body.categoryname
+
+   registerData.findByIdAndUpdate({"_id":id},
+                                {$set:{
+                                  //"profileId":productId,
+                                  "name":name,
+                                  "email":email,
+                                 "userrole":userrole,
+                                
+                                //"category":categoryname
                               }})
    .then(function(){
        res.send();

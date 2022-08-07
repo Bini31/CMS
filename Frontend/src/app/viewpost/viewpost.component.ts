@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { AuthservicesService } from '../services/authservices.service';
 import  {PostModel} from '../services/ViewPostModel';
 import {Router} from '@angular/router'
+import { CategoryModel } from '../services/CategoryModel';
 @Component({
   selector: 'app-viewpost',
   templateUrl: './viewpost.component.html',
   styleUrls: ['./viewpost.component.css']
 })
 export class ViewpostComponent implements OnInit {
+  category:CategoryModel[]=[]
   postmodel:PostModel[]=[]
   profiles=[{
     profileId:'',
@@ -15,24 +17,28 @@ export class ViewpostComponent implements OnInit {
       slug:'',
       body:'',
       date:'',
-     
+      category:'',
+     email:''
      }]
-  constructor( private adminprofileservice: AuthservicesService,private router:Router ) { }
+  constructor( public adminprofileservice: AuthservicesService,private router:Router ) { }
 
   ngOnInit(): void {
     this.adminprofileservice.getProfiles().subscribe((data)=>{
-      
-  
-      
-      
-
       this.profiles=JSON.parse(JSON.stringify(data));
-    //const ids=this.profilemodel.map((obj)=>obj._id)
-    //  console.log(ids)
+      console.log(data)
+ 
+   
+    // const email=this.postmodel.map((obj)=>obj.email)
+    //  console.log(email)
       //console.log(this.profilemodel.)
       //console.log(this.profile.name)
       
   })
+  this.adminprofileservice.getCategories().subscribe((data)=>{
+    this.category=JSON.parse(JSON.stringify(data));
+  
+    console.log(this.category)
+})
   }
   editProduct(i:any)
   {
@@ -45,16 +51,16 @@ export class ViewpostComponent implements OnInit {
   deleteProduct(i:any)
   {
     this.adminprofileservice.deleteProduct(i._id)
-
+ 
       .subscribe((data) => {
-       
+        alert("Deleted Successfully");
         this.profiles= this.profiles.filter(p => p !== i)
-       
+    
         //console.log(profile.email);
 
   })
-  alert("Deleted Successfully");
   window.location.reload();
 }
+
   
 }

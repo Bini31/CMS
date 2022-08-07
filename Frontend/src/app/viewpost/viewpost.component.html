@@ -4,7 +4,11 @@
 <div class='card'>
   <br>
   <div class='card-header'>
-   <b>POSTS</b>
+  <label id="posts"><b>POSTS</b></label> <label class="Categories" id="category"><b>Search Categories</b></label>
+   <select  name="category" id="category" formControlName="category" required><br>
+     <option *ngFor="let i of category">{{i.category}}</option>
+     
+ </select>
   </div>
   
   <div class='card-body'>            
@@ -24,7 +28,7 @@
             <th>Slug</th>
             <th>Body</th>
             <th>Published Date</th>
-            
+            <th>Category</th>
           </tr>
          
         </thead>
@@ -40,10 +44,14 @@
                 <td>{{i.slug}}</td>
                 <td>{{i.body}}</td>
                 <td>{{i.date}}</td>
-                
+                 <td>{{i.category}}</td> 
+                <!-- <select >
+                  <option  >{{i.category}}</option>
+                  
+              </select> -->
                 <td>
-                  <button class="btn btn-warning mx-3" style="cursor:pointer" (click)="editProduct(i)" style="margin-left:20px;"> Edit</button>
-                  <button class="btn btn-danger" style="cursor:pointer"(click)="deleteProduct(i)"> Delete</button>
+                  <button class="btn btn-warning mx-3" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck()" (click)="editProduct(i)" style="margin-left:20px;"> Edit</button>
+                  <button class="btn btn-danger" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck() " (click)="deleteProduct(i)"> Delete</button>
                 </td>
               </tr>              
         </tbody>

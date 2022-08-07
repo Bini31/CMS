@@ -1,0 +1,51 @@
+
+<br><br><br><br><br>
+<div class='card'>
+    <form  (ngSubmit)="editUser()">
+<div class='card-header'>
+ Edit Profile
+</div>
+<div class='card-body'>            
+  <div class='table-responsive'>
+    <table class='table'>       
+    
+      <tbody>  
+        <!-- <tr>
+            <td> <label>Profile Id</label></td>
+            <td><input type="text" name="profileID"  [(ngModel)]="profileItem.profileId"/></td>                  
+          </tr> -->
+          <tr>
+              <td> <label>User Name</label></td>
+              <td><input type="text" name="name" [(ngModel)]="userItem.name" /></td>                  
+            </tr>   
+           <tr>
+                <td><label>Email</label></td>
+                <td><input type="text" name="email" [(ngModel)]="userItem.email"/></td>                  
+              </tr>  
+              <tr>
+                <td><label>User Role</label></td>
+                <td><input type="text" name="userrole" [(ngModel)]="userItem.userrole"/></td>                  
+              </tr>  
+              
+              <!-- <tr>
+                <td> <label>Product starRating</label></td>
+                <td><input type="text" name="p_rating" /></td>                  
+              </tr>   -->
+              <!-- <tr>
+                <td><label>Product imageUrl</label></td>
+                <td><input type="text" name="p_image" /></td>                  
+              </tr>   -->
+              <tr>
+                <td></td>
+                <td><input type="submit"  value="Submit" /></td>                  
+              </tr>             
+      </tbody>
+    </table>
+  </div>
+</div>
+</form>
+</div>
+
+
+
+

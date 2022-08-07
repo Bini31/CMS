@@ -38,11 +38,13 @@ export class AddpostComponent implements OnInit {
     body: new FormControl('', Validators.compose([Validators.required, this.customValidator.patternValidator()])),
     date: new FormControl('', Validators.compose([Validators.required, this.customValidator.patternValidator()])),
     category: new FormControl('', Validators.required),
+    email:new FormControl(localStorage.getItem("usermail"))
   })
   ngOnInit(): void {
+    
     this.addpostservice.getCategories().subscribe((data)=>{
       this.category=JSON.parse(JSON.stringify(data));
-      console.log(this.category)
+     console.log(this.category)
   })
   
   }
@@ -50,10 +52,11 @@ export class AddpostComponent implements OnInit {
   onAddPost() {
    
 
-  
+ 
+
     let data = this.addPost.value;
   
-    console.log(this.addPost.value);
+    console.log("data"+data);
     this.addpostservice.addPostData(data)
     .subscribe(
       res => {
@@ -61,6 +64,8 @@ export class AddpostComponent implements OnInit {
         
         
         alert("Post data saved successfully")
+        
+    
         window.location.reload();
       }else 
       {

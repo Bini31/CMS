@@ -16,6 +16,10 @@ import { AddpostComponent } from './addpost/addpost.component';
 import { ViewpostComponent } from './viewpost/viewpost.component';
 import { PostupdateComponent } from './postupdate/postupdate.component';
 import { CategoryComponent } from './category/category.component';
+import { AdminuserComponent } from './adminuser/adminuser.component';
+import { AuthenticateduserComponent } from './authenticateduser/authenticateduser.component';
+import { AdduserComponent } from './adduser/adduser.component';
+import { AdduserupdateComponent } from './adduserupdate/adduserupdate.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +33,10 @@ import { CategoryComponent } from './category/category.component';
     ViewpostComponent,
     PostupdateComponent,
     CategoryComponent,
+    AdminuserComponent,
+    AuthenticateduserComponent,
+    AdduserComponent,
+    AdduserupdateComponent,
    
   ],
   imports: [

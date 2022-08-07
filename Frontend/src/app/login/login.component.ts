@@ -36,24 +36,24 @@ export class LoginComponent implements OnInit {
 
             localStorage.setItem('username',res.username)
 
-            this.router.navigate(['rootuser']);
-            /*if(res.userrole=="Admin")
+            //this.router.navigate(['rootuser']);
+            if(res.userrole=="SuperAdmin")
             {
-            this.router.navigate(['admin/adminprofile']);
+            this.router.navigate(['/rootuser']);
             alert(res.message);
 
             localStorage.setItem('username',res.username)
             }
-            else if(res.userrole=="Seller")
+            else if(res.userrole=="Admin")
             {
-            this.router.navigate(['/seller/profile']);
+            this.router.navigate(['/adminuser']);
             alert(res.message);
             }
-            else if(res.userrole=="Buyer")
+            else if(res.userrole=="User")
             {
-              this.router.navigate(['/buyer/bprofile'])
+              this.router.navigate(['/auuser'])
               alert(res.message);
-            }*/
+            }
           }
 else{
   alert(res.message)

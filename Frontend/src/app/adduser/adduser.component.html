@@ -1,0 +1,51 @@
+<div class='card'>
+    <br>
+    <div class='card-header'>
+     PROFILE VIEW
+    </div>
+    
+    <div class='card-body'>            
+      <div class='table-responsive'>
+        <table class='table'>
+              <!-- *ngIf = 'products && products.length'> -->
+          <thead>
+            <tr>
+              <!-- <th>
+                <button class='btn btn-primary'
+                (click)='toggleImage()'>
+                  {{showImage? 'Hide' : 'Show'}} Image
+                </button>
+              </th> -->
+              <!-- <th>ID</th> -->
+              <th>User Name</th>
+              <th>Email</th>
+              <th>User Role</th>
+           
+            </tr>
+           
+          </thead>
+          <tbody>  
+              <tr *ngFor="let i of users" >
+                  <!-- <td><img *ngIf='showImage'
+                    [src] = 'product.imageUrl' 
+                    [title] = 'product.productName'
+                    [style.width.px] = 'imageWidth' 
+                    [style.margin.px] = 'imageMargin'></td> -->
+                    <!-- <td>{{i._id}}</td> -->
+                  <td>{{i.name}}</td>
+                  <td>{{i.email}}</td>
+                  <td>{{i.userrole}}</td>
+                 
+                  <td>
+                    <button class="btn btn-warning mx-3" style="cursor:pointer" (click)="editUser(i)" style="margin-left:20px;"> Edit</button>
+                    <button class="btn btn-danger" style="cursor:pointer"(click)="deleteUser(i)"> Delete</button>
+                  </td>
+                </tr>              
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+
+
