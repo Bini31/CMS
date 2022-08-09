@@ -12,14 +12,14 @@
               <a class="nav-link" aria-current="page" routerLink="" style="color: white;padding-right: 4vw;">Home</a>
             </li>
             <li ngbDropdown class="nav-item " *ngIf="auth.loggedIn()" style="color: white;padding-right: 4vw;">
-              <a   class="nav-link" (click)="false" ngbDropdownToggle>Create Content</a>
+              <a   class="nav-link" (click)="false" *ngIf=" (auth.superAdminCheck() || auth.adminCheck())"  ngbDropdownToggle>Create Content</a>
               <div ngbDropdownMenu class="Buyer ">
-                <button ngbDropdownItem  routerLink="/rootuser/addpost">Add Post</button>
+                <button ngbDropdownItem *ngIf=" (auth.superAdminCheck() || auth.adminCheck())"  routerLink="/rootuser/addpost">Add Post</button>
               
                 
                 <div class="dropdown-divider"></div>
                 
-                <button ngbDropdownItem  *ngIf="(auth.superAdminCheck() || auth.adminCheck())" routerLink="/rootuser/category">Add Category</button>
+                <button ngbDropdownItem  *ngIf=" (auth.superAdminCheck() || auth.adminCheck())" routerLink="/rootuser/category">Add Category</button>
                 <div class="dropdown-divider"></div>
                 <button ngbDropdownItem *ngIf="auth.loggedIn() && auth.superAdminCheck()" routerLink="/rootuser/users">Add User Role</button>
               </div>

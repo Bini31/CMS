@@ -34,9 +34,16 @@ export class PostupdateComponent implements OnInit {
     console.log(this.category)})
   }
   editProduct()
-  {    
+  {    let userrole=localStorage.getItem("userrole") 
     this.adminprofileservice.editProduct(this.profileItem);
     alert("Success");
+    if(userrole=="SuperAdmin || Admin")
+    {
     this.router.navigate(['/rootuser/viewpost']);
   }
+  else{
+    this.router.navigate(['/auuser/mypost']);
+  }
 }
+  }
+

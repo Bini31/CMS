@@ -1,37 +1,39 @@
 <div class="row">
-    <div class="col-md-3">
-      <div class="sidebar">
-        <div class="side-header">
-          <h1>Welcome</h1>
-  
-          <p>{{username}}</p>
-  
-        </div>
-        <nav class="sidenav">
-          <input type="radio" class="checkbox" name="radio" id="0" checked />
-          <label for="0" class="button"
-            ><a routerLink="/rootuser/viewpost">Posts</a>
-          </label> 
-          <!-- <input type="radio" class="checkbox" name="radio" id="1" />
-          <label for="1" class="button"
-            ><a routerLink="sellerhistory">Pages</a></label
-          > 
-          <input type="radio" class="checkbox" name="radio" id="2" />
-  
-          <label for="1" class="button" ><a routerLink="/admin/addwork">Users</a></label>
-  
-           <label for="1" class="button" ><a routerLink="seller/addwork"> Add Painting</a></label> -->
-  
-          <!-- <input type="radio" class="checkbox" name="radio" id="2"> 
-           <label for="1" class="button" ><a routerLink="cart/:id/:name/:price/:dimension/:category/:artist/:image"> Cart</a></label> -->
-          <!-- <input type="radio" class="checkbox" name="radio" id="2">  -->
-            
-          <div class="slide"></div>
-        </nav>
+  <div class="col-md-3">
+    <div class="sidebar">
+      <div class="side-header">
+        <h1>Welcome</h1>
+
+        <p>{{username}}</p>
+
       </div>
-    </div>
-    <div class="col-md-9" style="margin-top: 85px">
-      <router-outlet></router-outlet>
+      <nav class="sidenav">
+        <input type="radio" class="checkbox" name="radio" id="0" checked />
+        <label for="0" class="button"
+          ><a routerLink="/rootuser/viewpost">Posts</a>
+        </label> 
+        <input type="radio" class="checkbox" name="radio" id="1" />
+        <label for="1" class="button"><a routerLink="/rootuser/viewcategory">View Category</a></label> 
+        
+        <!-- <input type="radio" class="checkbox" name="radio" id="1" />
+        <label for="1" class="button"
+          ><a routerLink="sellerhistory">Pages</a></label
+        > 
+        <input type="radio" class="checkbox" name="radio" id="2" />
+
+        <label for="1" class="button" ><a routerLink="/admin/addwork">Users</a></label>
+
+         <label for="1" class="button" ><a routerLink="seller/addwork"> Add Painting</a></label> -->
+
+        <!-- <input type="radio" class="checkbox" name="radio" id="2"> 
+         <label for="1" class="button" ><a routerLink="cart/:id/:name/:price/:dimension/:category/:artist/:image"> Cart</a></label> -->
+        <!-- <input type="radio" class="checkbox" name="radio" id="2">  -->
+          
+        <div class="slide"></div>
+      </nav>
     </div>
   </div>
-  
+  <div class="col-md-9" style="margin-top: 85px">
+    <router-outlet></router-outlet>
+  </div>
+</div>

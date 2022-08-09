@@ -1,0 +1,41 @@
+<br>
+<br>
+
+<div class='card'>
+  <br>
+  <div class='card-header'>
+  <label id="posts"><b>View Category</b></label> 
+   
+  </div>
+  
+  <div class='card-body'>            
+    <div class='table-responsive'>
+      <table class='table'>
+            
+        <thead>
+          <tr>
+           
+            <th>Category Name</th>
+            
+          </tr>
+         
+        </thead>
+        <tbody>  
+            <tr *ngFor="let i of categories" >
+                
+               
+                 <td>{{i.category}}</td> 
+                
+                <td>
+                  <button class="btn btn-warning mx-3" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck()" (click)="editCategory(i)" style="margin-left:20px;"> Edit</button>
+                  <button class="btn btn-danger" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck() " (click)="deleteCategory(i)"> Delete</button>
+                </td>
+              </tr>              
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+

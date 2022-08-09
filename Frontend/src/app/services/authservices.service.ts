@@ -55,11 +55,17 @@ export class AuthservicesService {
   getUser(id:any) {
     return this.http.get('http://localhost:3000/users/users/'+id)
   }
+  getCategory(id:any){
+    return this.http.get('http://localhost:3000/users/categories/'+id)
+  }
   getCategories() {
     return this.http.get('http://localhost:3000/users/category')
   }
   getProfile(id:any) {
     return this.http.get('http://localhost:3000/users/'+id)
+  }
+  get(id:any){
+    return this.http.get('http://localhost:3000/users/readpost/'+id)
   }
   deleteProduct(id:any)
   {
@@ -67,10 +73,23 @@ export class AuthservicesService {
     return this.http.delete("http://localhost:3000/users/remove/"+id)
 
   }
+  deleteCategory(id:any)
+  {
+  
+    return this.http.delete("http://localhost:3000/users/categoryremove/"+id)
+
+  }
   editProduct(profile:any)
   {
     console.log('client update')
     return this.http.put("http://localhost:3000/users/update",profile)
+    .subscribe(data =>{console.log(data)})
+
+  }
+  editCategory(profile:any)
+  {
+    console.log('client update')
+    return this.http.put("http://localhost:3000/users/categoryupdate",profile)
     .subscribe(data =>{console.log(data)})
 
   }
@@ -106,6 +125,7 @@ export class AuthservicesService {
       return false
     }
   }
+ 
   auCheck(){
     var user=localStorage.getItem('userrole')
     if(user=="User"){
@@ -117,5 +137,7 @@ export class AuthservicesService {
 
     
   }
- 
+  getmyPost(email:any){
+    return this.http.get('http://localhost:3000/users/myposts/'+email)
+  }
 }

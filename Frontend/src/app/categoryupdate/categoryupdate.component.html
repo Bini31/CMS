@@ -1,0 +1,31 @@
+<br><br><br><br><br>
+<div class='card'>
+    <form  (ngSubmit)="editCategory()">
+<div class='card-header'>
+ <b>EDIT Category</b>
+</div>
+<div class='card-body'>            
+  <div class='table-responsive'>
+    <table class='table'>       
+    
+      <tbody>  
+        
+          <tr>
+              <td> <label>Categoryname</label></td>
+              <td><input type="text" name="title" [(ngModel)]="categoryItem.category" /></td>                  
+            </tr>   
+          
+               
+              <tr>
+                <td></td>
+                <td><input type="submit"  value="Submit" /></td>                  
+              </tr>             
+      </tbody>
+    </table>
+  </div>
+</div>
+</form>
+</div>
+
+
+

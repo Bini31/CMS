@@ -67,6 +67,15 @@ router.post('/register',(req, res) => {
         res.send();
     })
   })
+  router.delete('/categoryremove/:id',(req,res)=>{
+   
+    id = req.params.id;
+    categoryData.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        console.log('success')
+        res.send();
+    })
+  })
   router.delete('/removeuser/:id',(req,res)=>{
    
     id = req.params.id;
@@ -151,6 +160,16 @@ email:req.body.email
         res.json({ success: false, message: "Auth Failed" })
       });
   })
+  router.get('/myposts/:email', (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+     email= req.params.email;
+     //console.log(id)
+    addPostData.find({"email":email})
+    .then((profileItem)=>{
+        res.send(profileItem);
+    });
+  })
   router.get('/:id', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
@@ -167,6 +186,26 @@ email:req.body.email
      id = req.params.id;
      console.log(id)
     registerData.findOne({"_id":id})
+    .then((profileItem)=>{
+        res.send(profileItem);
+    });
+  })
+  router.get('/readpost/:id', (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+     id = req.params.id;
+     console.log(id)
+    addPostData.findOne({"_id":id})
+    .then((profileItem)=>{
+        res.send(profileItem);
+    });
+  })
+  router.get('/categories/:id', (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+     id = req.params.id;
+     console.log(id)
+    categoryData.findOne({"_id":id})
     .then((profileItem)=>{
         res.send(profileItem);
     });
@@ -196,6 +235,26 @@ email:req.body.email
        res.send();
    })
   })
+  router.put('/categoryupdate',(req,res)=>{
+    console.log(req.body)
+    id=req.body._id,
+    
+  
+   category=req.body.category
+
+
+   categoryData.findByIdAndUpdate({"_id":id},
+                                {$set:{
+                                
+                                 
+                                "category":category
+                                
+                              }})
+   .then(function(){
+       res.send();
+   })
+  })
+ 
   router.put('/updateuser',(req,res)=>{
     console.log(req.body)
     id=req.body._id,

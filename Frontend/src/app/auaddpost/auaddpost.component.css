@@ -1,0 +1,40 @@
+.panel{
+    position: absolute;
+    height:100%;
+}
+#title{
+    width:400px;
+    height:40px;
+    margin-right:115px ;
+}
+#slug{
+    width:900px;
+    height:40px
+}   
+#body{
+    width:900px;
+    height:200px
+}
+#save{
+    margin-right: 10px;
+    width:85px;
+}
+#search{
+    width:900px; 
+}
+#cancel{
+    margin-bottom: 10px;
+    width:85px;
+}
+#publisheddate{
+    margin-right:70px;
+}
+#date{
+    margin-right:50px;
+}
+#lbtitle{
+    margin-right:50%;
+}
+.lbtitle{
+    margin-right: 20px;
+}
