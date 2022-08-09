@@ -44,23 +44,28 @@ export class ViewpostComponent implements OnInit {
   {
     localStorage.setItem("editProductId", i._id.toString())
     
-   // let profileId = localStorage.getItem("editProductId");
+   let profileId = localStorage.getItem("editProductId");
     this.router.navigate(['/postupdate']);
 
   }
   deleteProduct(i:any)
-  {
+  {     alert("Deleted Successfully");
     this.adminprofileservice.deleteProduct(i._id)
- 
+  
       .subscribe((data) => {
-        alert("Deleted Successfully");
+   
         this.profiles= this.profiles.filter(p => p !== i)
-    
+        
         //console.log(profile.email);
 
   })
   window.location.reload();
 }
 
-  
+ get(i:any){
+  localStorage.setItem("ProductId", i._id.toString())
+ let readpost=localStorage.getItem("ProductId")
+ this.adminprofileservice.get(readpost)
+  this.router.navigate(['/readpost']);
+ } 
 }

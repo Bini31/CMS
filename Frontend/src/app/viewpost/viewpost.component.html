@@ -40,7 +40,7 @@
                   [style.width.px] = 'imageWidth' 
                   [style.margin.px] = 'imageMargin'></td> -->
                   <!-- <td>{{i._id}}</td> -->
-                <td><a href="/">{{i.title}}</a></td>
+                <td >{{i.title}}</td>
                 <td>{{i.slug}}</td>
                 <td>{{i.body}}</td>
                 <td>{{i.date}}</td>
@@ -50,8 +50,11 @@
                   
               </select> -->
                 <td>
+                  <button class="btn btn-danger" style="cursor:pointer"  (click)="get(i)"> Read</button>
                   <button class="btn btn-warning mx-3" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck()" (click)="editProduct(i)" style="margin-left:20px;"> Edit</button>
-                  <button class="btn btn-danger" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck() " (click)="deleteProduct(i)"> Delete</button>
+                  
+                <button class="btn btn-danger" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck() " (click)="deleteProduct(i)"> Delete</button>
+ 
                 </td>
               </tr>              
         </tbody>
