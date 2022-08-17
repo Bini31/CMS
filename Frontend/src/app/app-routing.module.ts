@@ -18,9 +18,11 @@ import { AuthenticateduserComponent } from './authenticateduser/authenticateduse
 import { ViewcategoryComponent } from './viewcategory/viewcategory.component';
 import { CategoryupdateComponent } from './categoryupdate/categoryupdate.component';
 import { ReadpostComponent } from './readpost/readpost.component';
+import { FooterComponent } from './footer/footer.component';
 //import { MypostupdateComponent } from './mypostupdate/mypostupdate.component';
 const routes: Routes = [  
 {path:'',component:HomeComponent},
+{path:'footer',component:FooterComponent},
 {path:'login',component:LoginComponent},
 {path:'register',component:RegisterComponent},
 {path:'rootuser',component:RootuserComponent,children:[
