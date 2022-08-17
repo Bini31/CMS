@@ -8,15 +8,12 @@
             <form  class="form_group field" [formGroup]="loginForm" (ngSubmit)="onSubmit()"> -->
                 <div class="inputs">
                     <label class="lbcat">Category Name:</label>
-                    <input id="categoryname" name="categoryname" formControlName="categoryname"   type="text"  placeholder="Enter Category Name">
+                    <input id="category" name="category" formControlName="category"   type="text"  placeholder="Enter Category Name">
                     <span class="text-danger"
-                    *ngIf="(categoryForm.controls['categoryname'].touched||submitted) && categoryForm.controls['categoryname'].errors?.['required']">
+                    *ngIf="(categoryForm.controls['category'].touched||submitted) && categoryForm.controls['category'].errors?.['required']">
                     Category name  is required,
                 </span>
-                <span class="text-danger"
-                *ngIf="categoryForm.controls['categoryname'].touched && categoryForm.controls['categoryname'].errors?.['pattern'] ">
-            Invalid Category name.
-            </span><br>
+              <br>
             
                     
                 

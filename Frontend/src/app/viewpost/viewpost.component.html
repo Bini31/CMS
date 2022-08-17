@@ -4,11 +4,12 @@
 <div class='card'>
   <br>
   <div class='card-header'>
-  <label id="posts"><b>POSTS</b></label> <label class="Categories" id="category"><b>Search Categories</b></label>
+  <label id="posts"><b>POSTS</b></label>
+   <!-- <label class="Categories" id="category"><b>Search Categories</b></label>
    <select  name="category" id="category" formControlName="category" required><br>
      <option *ngFor="let i of category">{{i.category}}</option>
      
- </select>
+ </select> -->
   </div>
   
   <div class='card-body'>            
@@ -40,9 +41,9 @@
                   [style.width.px] = 'imageWidth' 
                   [style.margin.px] = 'imageMargin'></td> -->
                   <!-- <td>{{i._id}}</td> -->
-                <td >{{i.title}}</td>
-                <td>{{i.slug}}</td>
-                <td>{{i.body}}</td>
+                <td style="width:20px">{{i.title}}</td>
+                <td style="width:20px">{{i.slug}}</td>
+                <td style="width:400%;">{{i.body}}</td>
                 <td>{{i.date}}</td>
                  <td>{{i.category}}</td> 
                 <!-- <select >
@@ -50,10 +51,10 @@
                   
               </select> -->
                 <td>
-                  <button class="btn btn-danger" style="cursor:pointer"  (click)="get(i)"> Read</button>
-                  <button class="btn btn-warning mx-3" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck()" (click)="editProduct(i)" style="margin-left:20px;"> Edit</button>
+                  <button class="btn btn-danger" style="cursor:pointer"  (click)="get(i)"> Read</button></td>
+                  <td><button class="btn btn-warning mx-3" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck()" (click)="editProduct(i)" style="margin-left:20px;"> Edit</button></td>
                   
-                <button class="btn btn-danger" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck() " (click)="deleteProduct(i)"> Delete</button>
+                <td><button class="btn btn-danger" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck() " (click)="deleteProduct(i)"> Delete</button>
  
                 </td>
               </tr>              

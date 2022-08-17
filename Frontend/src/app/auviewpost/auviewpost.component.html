@@ -40,9 +40,9 @@
                   [style.width.px] = 'imageWidth' 
                   [style.margin.px] = 'imageMargin'></td> -->
                   <!-- <td>{{i._id}}</td> -->
-                <td><a href="/readpost">{{i.title}}</a></td>
-                <td>{{i.slug}}</td>
-                <td>{{i.body}}</td>
+                <td style="width:20px">{{i.title}}</td>
+                <td style="width:20px">{{i.slug}}</td>
+                <td style="width:100%;">{{i.body}}</td>
                 <td>{{i.date}}</td>
                  <td>{{i.category}}</td> 
                 <!-- <select >
@@ -50,9 +50,11 @@
                   
               </select> -->
                 <td>
-                  <button class="btn btn-warning mx-3" style="cursor:pointer"  (click)="get(i)" style="margin-left:20px;"> Read</button>
-                  <button class="btn btn-warning mx-3" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck()" (click)="editProduct(i)" style="margin-left:20px;"> Edit</button>
-                  <button class="btn btn-danger" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck() " (click)="deleteProduct(i)"> Delete</button>
+                  <button class="btn btn-danger" style="cursor:pointer"  (click)="get(i)"> Read</button></td>
+                  <td><button class="btn btn-warning mx-3" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck()" (click)="editProduct(i)" style="margin-left:20px;"> Edit</button></td>
+                  
+                <td><button class="btn btn-danger" style="cursor:pointer" [disabled]=" adminprofileservice.auCheck() " (click)="deleteProduct(i)"> Delete</button>
+ 
                 </td>
               </tr>              
         </tbody>
@@ -60,6 +62,4 @@
     </div>
   </div>
 </div>
-
-
 

@@ -28,4 +28,3 @@ export class ReadpostComponent implements OnInit {
 
 }
 }
-

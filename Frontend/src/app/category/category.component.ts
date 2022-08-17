@@ -12,7 +12,7 @@ export class CategoryComponent implements OnInit {
   
   categoryForm=new FormGroup({
    
-    categoryname: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z])$/), Validators.maxLength(10)])
+    category: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z])$/), Validators.maxLength(10)])
   })
 
   constructor(private fb:FormBuilder,private router:Router,private categoryservice: AuthservicesService) { }
