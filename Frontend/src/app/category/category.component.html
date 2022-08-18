@@ -13,7 +13,10 @@
                     *ngIf="(categoryForm.controls['category'].touched||submitted) && categoryForm.controls['category'].errors?.['required']">
                     Category name  is required,
                 </span>
-              <br>
+                <span class="text-danger"
+                *ngIf="categoryForm.controls['category'].touched && categoryForm.controls['category'].errors?.['pattern'] ">
+            Invalid Category name.
+            </span><br>
             
                     
                 

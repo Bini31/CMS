@@ -18,6 +18,12 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('token')
     localStorage.removeItem('userrole')
     localStorage.removeItem('username')
+    localStorage.removeItem('edituserId')
+    localStorage.removeItem('editProductId')
+    localStorage.removeItem('postId')
+    localStorage.removeItem('usermail')
+    localStorage.removeItem('ProductId')
+    localStorage.removeItem('categoryId')
     this.routes.navigate(['/'])
       }
 }

@@ -38,7 +38,7 @@
                 *ngIf="registerForm.controls['name'].touched && registerForm.controls['name'].errors?.['pattern'] ">
             Invalid name.
             </span><br>
-                    <label><b>Email ID</b></label> <input id="email1" name='email1' formControlName="email1" type="email" required><br><br>
+            <label><b>Email ID</b></label> <input id="email1" name='email1' formControlName="email1" type="email" required><br><br>
                     <span class="text-danger"
                     *ngIf="(registerForm.controls['email1'].touched||submitted) && registerForm.controls['email1'].errors?.['required']">
                     Email is required

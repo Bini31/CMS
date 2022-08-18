@@ -11,9 +11,9 @@ var RegisterSchema = new Schema({
   // profileId : {type:String,required:true},
     name : {type:String,required:true},
     email:{type:String,unique:true},
-    userrole:{type:String,required:null},
     password:{type:String,required:true},
-    
+    userrole:{type:String},
+  
  
   
 });

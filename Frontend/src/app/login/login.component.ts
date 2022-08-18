@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/adminuser']);
             alert(res.message);
             }
-            else if(res.userrole=="User")
+            else 
             {
               this.router.navigate(['/auuser'])
               alert(res.message);

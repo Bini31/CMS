@@ -44,7 +44,7 @@ alert("Success")
   else if(userrole=="Admin"){
     this.router.navigate(['/rootuser/viewpost']);
   }
-  else if(userrole=="User"){
+  else if(userrole=="null"){
     this.router.navigate(['/auuser/mypost']);
   }
 }
