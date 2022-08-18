@@ -128,7 +128,7 @@ export class AuthservicesService {
  
   auCheck(){
     var user=localStorage.getItem('userrole')
-    if(user=="null"){
+    if(user=="null" || user==""){
       return true;
     }
     else {
